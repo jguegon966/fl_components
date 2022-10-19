@@ -23,7 +23,7 @@ class CustomCardType1 extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                TextButton(onPressed: () {}, child: const Text('Cancel')),
+                TextButton(onPressed: () {}, child: const Text('Cancel'),),
                 TextButton(onPressed: () {}, child: const Text('OK')),
               ],
             ),

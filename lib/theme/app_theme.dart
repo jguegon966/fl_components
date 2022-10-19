@@ -14,7 +14,11 @@ class AppTheme {
       elevation: 10
     ),
 
-    scaffoldBackgroundColor: Colors.black
+    scaffoldBackgroundColor: Colors.black,
+
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(foregroundColor: primary)
+    )
 
   );
 
