@@ -9,33 +9,61 @@ class AppRoutes {
 
   static final menuOptions = <MenuOption>[
     //TODO: borrar home
-    MenuOption(route: 'home', name: 'Home Screen', screen: const HomeScreen(), icon: Icons.home_filled),
-    MenuOption(route: 'listview1', name: 'List view 1', screen: const Listview1Screen(), icon: Icons.list),
-    MenuOption(route: 'listview2', name: 'List view 2', screen: const Listview2Screen(), icon: Icons.list_alt_sharp),
-    MenuOption(route: 'alert', name: 'Alert', screen: const AlertScreen(), icon: Icons.crisis_alert),
-    MenuOption(route: 'card', name: 'Card', screen: const CardScreen(), icon: Icons.card_giftcard_rounded),
-    MenuOption(route: 'avatar', name: 'Avatar', screen: const AvatarScreen(), icon: Icons.people),
+    MenuOption(
+        route: 'home',
+        name: 'Home Screen',
+        screen: const HomeScreen(),
+        icon: Icons.home_filled),
+    MenuOption(
+        route: 'listview1',
+        name: 'List view 1',
+        screen: const Listview1Screen(),
+        icon: Icons.list),
+    MenuOption(
+        route: 'listview2',
+        name: 'List view 2',
+        screen: const Listview2Screen(),
+        icon: Icons.list_alt_sharp),
+    MenuOption(
+        route: 'alert',
+        name: 'Alert',
+        screen: const AlertScreen(),
+        icon: Icons.crisis_alert),
+    MenuOption(
+        route: 'card',
+        name: 'Card',
+        screen: const CardScreen(),
+        icon: Icons.card_giftcard_rounded),
+    MenuOption(
+        route: 'avatar',
+        name: 'Avatar',
+        screen: const AvatarScreen(),
+        icon: Icons.people),
+    MenuOption(
+        route: 'animated',
+        name: 'Animated Containers',
+        screen: const AnimatedScreen(),
+        icon: Icons.play_circle_outline_rounded)
   ];
 
-
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
-
+    
     Map<String, Widget Function(BuildContext)> appRoutes = {};
+    appRoutes.addAll({'home': (BuildContext context) => const HomeScreen()});
 
     for (final option in menuOptions) {
-      appRoutes.addAll({ option.route: ( BuildContext context ) => option.screen });
+      appRoutes.addAll({option.route: (BuildContext context) => option.screen});
     }
 
     return appRoutes;
-  
   }
- // static Map<String, Widget Function(BuildContext)> routes = {
- //   'home': (BuildContext context) => const HomeScreen(),
- //   'listview1': (BuildContext context) => const Listview1Screen(),
- //   'listview2': (BuildContext context) => const Listview2Screen(),
- //   'alert': (BuildContext context) => const AlertScreen(),
- //   'card': (BuildContext context) => const CardScreen(),
- // };
+  // static Map<String, Widget Function(BuildContext)> routes = {
+  //   'home': (BuildContext context) => const HomeScreen(),
+  //   'listview1': (BuildContext context) => const Listview1Screen(),
+  //   'listview2': (BuildContext context) => const Listview2Screen(),
+  //   'alert': (BuildContext context) => const AlertScreen(),
+  //   'card': (BuildContext context) => const CardScreen(),
+  // };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     return MaterialPageRoute(builder: (context) => const HomeScreen());
