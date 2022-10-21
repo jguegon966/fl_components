@@ -43,11 +43,16 @@ class AppRoutes {
         route: 'animated',
         name: 'Animated Containers',
         screen: const AnimatedScreen(),
-        icon: Icons.play_circle_outline_rounded)
+        icon: Icons.play_circle_outline_rounded),
+    MenuOption(
+        route: 'inputs',
+        name: 'Inputs Screen',
+        screen: const InputsScreen(),
+        icon: Icons.input_rounded),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
-    
+
     Map<String, Widget Function(BuildContext)> appRoutes = {};
     appRoutes.addAll({'home': (BuildContext context) => const HomeScreen()});
 

@@ -5,9 +5,42 @@ class InputsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('InputsScreen'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Inputs y Forms'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            children: [
+              TextFormField(
+                autofocus: true,
+                initialValue: 'Jesus Guerrero',
+                textCapitalization: TextCapitalization.words,
+                onChanged: (value) {
+                  print('value: $value');
+                },
+                validator: (value) {
+                  if (value!.isEmpty) return 'Este campo es requerido';
+                  return value.length < 3 ? 'Minimo de 3 letras' : null;
+                },
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: const InputDecoration(
+                  hintText: 'Nombre de usuario',
+                  labelText: 'Nombre',
+                  helperText: 'Solo letras',
+                  //prefixIcon: Icon(Icons.verified_user_outlined),
+                  suffixIcon: Icon(Icons.group_outlined),
+                  icon: Icon (Icons.assignment_ind_outlined),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10)
+                  ))
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
